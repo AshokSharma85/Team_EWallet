@@ -1,0 +1,26 @@
+
+<section class="col-md-4 mx-auto">
+   
+    <div >
+    <div class="alert alert-success" *ngIf="msg!=undefined">{{msg}}</div>
+    <div class="alert alert-danger" *ngIf="errormsg!=undefined" [innerHTML]="errormsg"></div>
+    <div class="rounded shadow-lg p-3 mb-5">
+        <br>
+    Add Money to<br>
+    <b>EWallet</b><br>
+    <small>Available Balance <span style='font-family:Arial;'>&#8377; </span>{{walletbal}} </small> <br><br>
+    
+
+<form name="form1" #f="ngForm" (ngSubmit)="fun1('mode')" novalidate class="feedback-form">
+    <label>Enter Amount</label>
+    
+    <input type="number" id="amount" class="form-control" name="Amount" placeholder="&#8377; Amount" required #modelwid="ngModel" [(ngModel)]=amount/>
+    <div class="alert alert-danger" *ngIf="modelwid.invalid && modelwid.touched">*Amount is required</div>
+    <div class="mt-2 text-center"><input type="submit" value="Proceed to Add Money" [disabled]="!f.valid" class="btn btn-primary"/></div>
+    
+</form>
+</div>
+
+</div>
+</section>
+<router-outlet></router-outlet>

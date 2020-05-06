@@ -1,0 +1,23 @@
+
+<section class="col-md-4 mx-auto">
+
+    <div class="alert alert-success" *ngIf="msg!=undefined">{{msg}}</div>
+    <div class="alert alert-danger" *ngIf="errormsg!=undefined" [innerHTML]="errormsg"></div>
+    <div *ngIf="showtransactiondetail">
+        <div class="rounded shadow-lg p-3 mb-5">
+    <p class="bg-success text-white text-center"><small>Money added successfully <i class="fa fa-check-circle"></i> </small></p>
+        <p><b>To: EWallet <span class="text-right"> &#8377;{{transactiondetail.amount}}</span></b><br>
+        <small>Transaction ID: {{transactionid}}</small></p>
+        <p><b><span class="text-secondary">ADDED FROM</span></b><br>
+       <small> {{transactiondetail.bankname | uppercase}}<br>
+        <small>Bank Account Number: {{transactiondetail.accountNo}}<br>
+        {{transactiondetail.trans_time}}</small></small>
+    </p>
+        </div>
+    <div>
+        <form name="form1" #f="ngForm" (ngSubmit)="gettransactionhistroy()" novalidate class="feedback-form">
+            <div class="mt-2 text-center"><input type="submit" value="Veiw Credit History" [disabled]="!f.valid" class="btn btn-primary"/><br></div>
+        </form>
+        </div>
+</div>
+</section>
